@@ -1,0 +1,41 @@
+{
+  "name": "@lab/root-config",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "webpack serve --mode development --env isLocal",
+    "build": "webpack --mode production",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "bootstrap": "5.3.8",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "single-spa": "6.0.3",
+    "single-spa-layout": "3.0.0",
+    "systemjs": "6.15.1",
+    "systemjs-webpack-interop": "2.3.7"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "7.28.6",
+    "@babel/preset-typescript": "7.28.5",
+    "@types/webpack-env": "1.18.8",
+    "copy-webpack-plugin": "13.0.1",
+    "html-loader": "5.1.0",
+    "html-webpack-plugin": "5.6.8",
+    "jsdom": "30.0.1",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11",
+    "webpack": "5.110.1",
+    "webpack-cli": "7.2.3",
+    "webpack-config-single-spa-ts": "8.0.0",
+    "webpack-dev-server": "5.2.2",
+    "webpack-merge": "6.0.1"
+  },
+  "engines": {
+    "node": ">=22.22.2"
+  }
+}

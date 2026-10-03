@@ -1,0 +1,218 @@
+:root {
+  color-scheme: dark;
+}
+
+html {
+  min-width: 320px;
+  background: var(--bs-tertiary-bg, #f8f9fa);
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  background: var(--bs-tertiary-bg, #f8f9fa);
+}
+
+.shell-root {
+  width: min(100%, 1680px);
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: var(--bs-tertiary-bg, #f8f9fa);
+}
+
+.shell-header {
+  min-height: 56px;
+}
+
+.shell-header .navbar-brand {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.platform-health,
+.tool-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.platform-health {
+  font-size: 0.8125rem;
+}
+
+.status-light {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  flex: 0 0 auto;
+  border: 1px solid var(--bs-secondary, #6c757d);
+  border-radius: 50%;
+  background: transparent;
+}
+
+[data-state="online"] .status-light {
+  border-color: var(--bs-success, #198754);
+  background: var(--bs-success, #198754);
+}
+
+[data-state="degraded"] .status-light {
+  border-color: var(--bs-warning, #ffc107);
+  background: var(--bs-warning, #ffc107);
+}
+
+[data-state="offline"] .status-light {
+  border-color: var(--bs-danger, #dc3545);
+  background: var(--bs-danger, #dc3545);
+}
+
+.tool-nav {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-block: 0.5rem;
+  border-bottom: 1px solid var(--bs-border-color, #dee2e6);
+  background: var(--bs-body-bg, #fff);
+  white-space: nowrap;
+}
+
+.tool-nav__title {
+  margin-right: 0.25rem;
+  color: var(--bs-secondary-color, #6c757d);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.tool-link {
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+
+.tool-link.btn-outline-secondary {
+  --bs-btn-color: var(--bs-secondary-color);
+  --bs-btn-border-color: var(--bs-secondary-color);
+  --bs-btn-hover-color: var(--bs-body-bg);
+  --bs-btn-hover-bg: var(--bs-secondary-color);
+  --bs-btn-hover-border-color: var(--bs-secondary-color);
+  --bs-btn-active-color: var(--bs-body-bg);
+  --bs-btn-active-bg: var(--bs-secondary-color);
+  --bs-btn-active-border-color: var(--bs-secondary-color);
+}
+
+.tool-link small {
+  color: inherit;
+  opacity: 0.7;
+  font-size: 0.6875rem;
+}
+
+.lab-surface {
+  padding-top: 1rem;
+}
+
+.mfe-zone {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--bs-border-color, #dee2e6);
+  border-radius: var(--bs-border-radius, 0.375rem);
+  background: var(--bs-body-bg, #fff);
+}
+
+.mfe-zone--traffic {
+  border-left: 3px solid var(--bs-primary, #0d6efd);
+}
+
+.mfe-zone--topology {
+  border-left: 3px solid var(--bs-success, #198754);
+  margin-top: 1rem;
+}
+
+.mfe-zone application {
+  display: block;
+  min-width: 0;
+}
+
+.remote-loader {
+  display: grid;
+  min-height: 140px;
+  align-content: start;
+  gap: 0.75rem;
+  padding: 1rem;
+  color: var(--bs-secondary-color, #6c757d);
+  font-size: 0.8125rem;
+}
+
+.mfe-zone--topology .remote-loader {
+  min-height: 500px;
+}
+
+.remote-loader__line,
+.remote-loader__canvas,
+.remote-loader__stack {
+  overflow: hidden;
+  background: var(--bs-secondary-bg, #e9ecef);
+  border-radius: var(--bs-border-radius-sm, 0.25rem);
+}
+
+.remote-loader__line {
+  width: 14rem;
+  max-width: 40%;
+  height: 1rem;
+}
+
+.remote-loader__line--wide {
+  width: 20rem;
+}
+
+.remote-loader__canvas {
+  min-height: 430px;
+}
+
+.remote-loader__stack {
+  min-height: 84px;
+}
+
+.remote-load-error {
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--bs-danger-border-subtle, #f1aeb5);
+  border-radius: var(--bs-border-radius, 0.375rem);
+  background: var(--bs-danger-bg-subtle, #f8d7da);
+  color: var(--bs-danger-text-emphasis, #58151c);
+}
+
+.remote-load-error p {
+  margin: 0.25rem 0 0.75rem;
+  font-size: 0.8125rem;
+}
+
+.remote-load-error a {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--bs-danger, #dc3545);
+  border-radius: var(--bs-border-radius-sm, 0.25rem);
+  color: var(--bs-danger, #dc3545);
+  font-size: 0.8125rem;
+  text-decoration: none;
+}
+
+@media (max-width: 560px) {
+  .tool-nav__title {
+    display: none;
+  }
+
+  .lab-surface {
+    padding-inline: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="FlashDrop: a high-load checkout lab with a live service map."
+    />
+    <meta name="theme-color" content="#212529" />
+    <title>FlashDrop / Architecture Lab</title>
+    <link rel="stylesheet" href="/vendor/bootstrap.min.css" />
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "single-spa": "/vendor/single-spa.min.js",
+          "react": "/vendor/react.<%= isLocal ? "development" : "production.min" %>.js",
+          "react-dom": "/vendor/react-dom.<%= isLocal ? "development" : "production.min" %>.js",
+          "@lab/root-config": "<%= rootConfigUrl %>",
+          "@lab/topology-mfe": "<%= topologyUrl %>",
+          "@lab/traffic-mfe": "<%= trafficUrl %>"
+        }
+      }
+    </script>
+    <script src="/vendor/system.min.js"></script>
+    <script src="/vendor/amd.min.js"></script>
+  </head>
+  <body>
+    <noscript>JavaScript is required to run the React microfrontends.</noscript>
+    <script>
+      System.import("@lab/root-config");
+    </script>
+  </body>
+</html>

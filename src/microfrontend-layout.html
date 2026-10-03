@@ -1,0 +1,61 @@
+<single-spa-router>
+  <div class="shell-root">
+    <header class="navbar navbar-dark bg-dark border-bottom">
+      <div class="container-fluid shell-header">
+        <a class="navbar-brand mb-0" href="/" aria-label="FlashDrop home">FlashDrop</a>
+        <div
+          class="platform-health text-light"
+          id="platform-health"
+          data-state="checking"
+          role="status"
+          aria-live="polite"
+          aria-label="Platform status: checking."
+        >
+          <span class="status-light" aria-hidden="true"></span>
+          <span id="platform-health-text">Checking</span>
+        </div>
+        <span
+          class="visually-hidden"
+          id="health-announcer"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        ></span>
+      </div>
+    </header>
+
+    <nav class="tool-nav container-fluid" aria-label="Infrastructure tools">
+      <span class="tool-nav__title">Infrastructure</span>
+      <a class="tool-link btn btn-sm btn-outline-secondary" id="tool-kafka" data-state="checking" data-tool-link="kafka" target="_blank" rel="noopener noreferrer">
+        <span class="status-light" aria-hidden="true"></span><span>Kafka</span><small id="tool-kafka-state">Checking</small>
+      </a>
+      <a class="tool-link btn btn-sm btn-outline-secondary" id="tool-rabbitmq" data-state="checking" data-tool-link="rabbitmq" target="_blank" rel="noopener noreferrer">
+        <span class="status-light" aria-hidden="true"></span><span>RabbitMQ</span><small id="tool-rabbitmq-state">Checking</small>
+      </a>
+      <a class="tool-link btn btn-sm btn-outline-secondary" id="tool-redis" data-state="checking" data-tool-link="redis" target="_blank" rel="noopener noreferrer">
+        <span class="status-light" aria-hidden="true"></span><span>Redis</span><small id="tool-redis-state">Checking</small>
+      </a>
+      <a class="tool-link btn btn-sm btn-outline-secondary" id="tool-postgresql" data-state="checking" data-tool-link="postgresql" target="_blank" rel="noopener noreferrer">
+        <span class="status-light" aria-hidden="true"></span><span>PostgreSQL</span><small id="tool-postgresql-state">Checking</small>
+      </a>
+      <a class="tool-link btn btn-sm btn-outline-secondary" id="tool-mysql" data-state="checking" data-tool-link="mysql" target="_blank" rel="noopener noreferrer">
+        <span class="status-light" aria-hidden="true"></span><span>MySQL</span><small id="tool-mysql-state">Checking</small>
+      </a>
+      <a class="tool-link btn btn-sm btn-outline-secondary" id="tool-airflow" data-state="checking" data-tool-link="airflow" target="_blank" rel="noopener noreferrer">
+        <span class="status-light" aria-hidden="true"></span><span>Airflow</span><small id="tool-airflow-state">Checking</small>
+      </a>
+    </nav>
+
+    <route path="/">
+      <main class="lab-surface container-fluid pb-3">
+        <section class="mfe-zone mfe-zone--traffic" aria-label="Traffic microfrontend">
+          <application name="@lab/traffic-mfe" loader="trafficLoader" error="trafficError"></application>
+        </section>
+
+        <section class="mfe-zone mfe-zone--topology" aria-label="Topology microfrontend">
+          <application name="@lab/topology-mfe" loader="topologyLoader" error="topologyError"></application>
+        </section>
+      </main>
+    </route>
+  </div>
+</single-spa-router>
